@@ -19,6 +19,7 @@ void UMenuWidget::Setup()
 	PlayerController->SetInputMode(InputModeData);
 
 	PlayerController->bShowMouseCursor = true;
+	this->bIsFocusable = true;
 }
 
 void UMenuWidget::Teardown()

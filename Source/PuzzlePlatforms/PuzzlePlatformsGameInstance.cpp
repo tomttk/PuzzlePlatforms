@@ -25,6 +25,8 @@ UPuzzlePlatformsGameInstance::UPuzzlePlatformsGameInstance(const FObjectInitiali
 
 void UPuzzlePlatformsGameInstance::Init()
 {
+	Super::Init();
+
 	UE_LOG(LogTemp, Warning, TEXT("Found class %s"), *MenuClass->GetName());
 }
 
@@ -44,12 +46,12 @@ void UPuzzlePlatformsGameInstance::InGameLoadMenu()
 {
 	if (!ensure(InGameMenuClass != nullptr)) return;
 
-	UMenuWidget* Menu = CreateWidget<UMenuWidget>(this, InGameMenuClass);
-	if (!ensure(Menu != nullptr)) return;
+	UMenuWidget* GameInstanceMenu = CreateWidget<UMenuWidget>(this, InGameMenuClass);
+	if (!ensure(GameInstanceMenu != nullptr)) return;
 
-	Menu->Setup();
+	GameInstanceMenu->Setup();
 
-	Menu->SetMenuInterface(this);
+	GameInstanceMenu->SetMenuInterface(this);
 }
 
 
