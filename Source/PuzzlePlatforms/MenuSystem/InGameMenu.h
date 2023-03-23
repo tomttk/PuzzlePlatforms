@@ -13,6 +13,7 @@ UCLASS()
 class PUZZLEPLATFORMS_API UInGameMenu : public UMenuWidget
 {
 	GENERATED_BODY()
+
 protected:
 	virtual bool Initialize();
 

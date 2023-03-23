@@ -26,7 +26,8 @@ void UInGameMenu::CancelPressed()
 
 void UInGameMenu::QuitPressed()
 {
-	if (MenuInterface != nullptr) {
+	if (MenuInterface != nullptr) 
+	{
 		Teardown();
 		MenuInterface->LoadMainMenu();
 	}

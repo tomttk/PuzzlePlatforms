@@ -13,6 +13,7 @@ UCLASS()
 class PUZZLEPLATFORMS_API UMainMenu : public UMenuWidget
 {
 	GENERATED_BODY()
+
 protected:
 	virtual bool Initialize();
 
@@ -49,7 +50,6 @@ private:
 
 	UFUNCTION()
 	void JoinServer();
-
 
 	UFUNCTION()
 	void OpenJoinMenu();
