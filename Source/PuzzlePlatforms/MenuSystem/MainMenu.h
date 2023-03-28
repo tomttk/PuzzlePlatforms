@@ -7,56 +7,61 @@
 #include "MainMenu.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class PUZZLEPLATFORMS_API UMainMenu : public UMenuWidget
 {
 	GENERATED_BODY()
 
+public:
+	UMainMenu(const FObjectInitializer& ObjectInitializer);
+
 protected:
 	virtual bool Initialize();
 
 private:
-	UPROPERTY(meta = (BindWidget))
-	class UButton* HostButton;
-	
-	UPROPERTY(meta = (BindWidget))
-	class UButton* JoinButton;
+	TSubclassOf<class UUserWidget> ServerRowClass;
 
 	UPROPERTY(meta = (BindWidget))
-	class UButton* QuitButton;
+		class UButton* HostButton;
 
 	UPROPERTY(meta = (BindWidget))
-	class UButton* CancelJoinMenuButton;
+		class UButton* JoinButton;
 
 	UPROPERTY(meta = (BindWidget))
-	class UButton* ConfirmJoinMenuButton;
+		class UButton* QuitButton;
 
 	UPROPERTY(meta = (BindWidget))
-	class UWidgetSwitcher* MenuSwitcher;
+		class UButton* CancelJoinMenuButton;
 
 	UPROPERTY(meta = (BindWidget))
-	class UWidget* MainMenu;
+		class UButton* ConfirmJoinMenuButton;
 
 	UPROPERTY(meta = (BindWidget))
-	class UWidget* JoinMenu;
+		class UWidgetSwitcher* MenuSwitcher;
 
 	UPROPERTY(meta = (BindWidget))
-	class UEditableTextBox* IPAddressField;
+		class UWidget* MainMenu;
+
+	UPROPERTY(meta = (BindWidget))
+		class UWidget* JoinMenu;
+
+	UPROPERTY(meta = (BindWidget))
+		class UPanelWidget* ServerList;
 
 	UFUNCTION()
-	void HostServer();
+		void HostServer();
 
 	UFUNCTION()
-	void JoinServer();
+		void JoinServer();
 
 	UFUNCTION()
-	void OpenJoinMenu();
+		void OpenJoinMenu();
 
 	UFUNCTION()
-	void OpenMainMenu();
+		void OpenMainMenu();
 
 	UFUNCTION()
-	void QuitPressed();
+		void QuitPressed();
 };
