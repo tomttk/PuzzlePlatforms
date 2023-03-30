@@ -7,7 +7,7 @@
 
 #include "MainMenu.h"
 
-void UServerRow::Setup(UMainMenu* InParent, uint32 InIndex)
+void UServerRow::Setup(class UMainMenu* InParent, uint32 InIndex)
 {
 	Parent = InParent;
 	Index = InIndex;

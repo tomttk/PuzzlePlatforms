@@ -60,7 +60,6 @@ void UMainMenu::SetServerList(TArray<FString> ServerNames)
 	uint32 i = 0;
 	for (const FString& ServerName : ServerNames)
 	{
-
 		UServerRow* Row = CreateWidget<UServerRow>(World, ServerRowClass);
 		if (!ensure(Row != nullptr)) return;
 
@@ -79,20 +78,14 @@ void UMainMenu::SelectIndex(uint32 Index)
 
 void UMainMenu::JoinServer()
 {
-	if (SelectedIndex.IsSet())
+	if (SelectedIndex.IsSet() && MenuInterface != nullptr)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Selected Index %d"), SelectedIndex.GetValue());
+		UE_LOG(LogTemp, Warning, TEXT("Selected index %d."), SelectedIndex.GetValue());
+		MenuInterface->Join(SelectedIndex.GetValue());
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Selected Index not set"));
-	}
-
-	if (MenuInterface != nullptr)
-	{
-		/*if (!ensure(IPAddressField != nullptr)) return;
-		const FString& Address = IPAddressField->GetText().ToString();*/
-		MenuInterface->Join("");
+		UE_LOG(LogTemp, Warning, TEXT("Selected index not set."));
 	}
 }
 
